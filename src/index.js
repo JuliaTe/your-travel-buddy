@@ -3,6 +3,9 @@ const path = require('path')
 const hbs = require('hbs')
 const { send } = require('process')
 
+const app = express()
+const port = process.env.PORT || 3000
+
 // Define paths for Express config
 const publicDirectoryPath = path.join(__dirname, '../public')
 const viewsPath = path.join(__dirname, '../templates/views')
@@ -23,12 +26,6 @@ app.get((''), (req, res) => {
   })
 })
 
-const app = express()
-const port = process.env.PORT || 3000
-
-app.get('', (req, res) => {
-  res.send('Hello express!')
-})
 
 app.listen(port, () => {
   console.log('Server is up on port ' + port)
